@@ -806,28 +806,8 @@ d. x.509 certification using makecert
 
 Service bus connection
 NameSpaceManager and NameSpaceManagerSettings
-can use different constructors
-NameSpaceManger.createFromConnectionString
-NameSpaceManager(sburi, tokenprovder)
-NameSpaceManager(uri, namespacemanagersettings())
-
-see this example for the above
-http://www.cloudcasts.net/devguide/Default.aspx?id=12018
-
 PeekLock (two staged) - service will only mark the message as consume when it sees the complete() call from application
 ReceiveAndDelete (single staged) - service will immediately mark the message as consumed as it forwards the message to the application
-
-EnablePartitioning (high throughput and availability)
-PreFetch (receive)
-client side batching (send, complete)
-batch store (writing to persistent store)
-express (caching )
-
-
-https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-performance-improvements
-
-Tokenprovider example (nothing but storage account credentials)
-http://www.cloudcasts.net/devguide/Default.aspx?id=12018
 
 api management
 policies
@@ -1052,10 +1032,6 @@ pcf cli pre installed in azure cloud shell
 https://docs.microsoft.com/en-us/azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
 
 
-service bus
-Enable partitioning while creating topic
-https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-partitioning
-
 puppet
 https://www.example42.com/tutorials/PuppetTutorial/#slide-9
 
@@ -1253,5 +1229,3 @@ Org:            Explorer
 Space:          development
 
 cf-spring-brash-swan.cfapps.io
-
-https://blogs.msdn.microsoft.com/sanket/2017/11/02/api-management-quota-versus-rate-limits/
