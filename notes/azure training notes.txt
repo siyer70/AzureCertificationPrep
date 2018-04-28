@@ -623,21 +623,21 @@ https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-ove
 Vault Name                       : KeyVaultExplore
 Resource Group Name              : KeyVaultRG
 Location                         : South India
-Resource ID                      : /subscriptions/170cf16c-77b6-4806-8a17-13b4e17d6187/resourceGroups/KeyVaultRG/provi
+Resource ID                      : /subscriptions/xxx/resourceGroups/KeyVaultRG/provi
                                    ers/Microsoft.KeyVault/vaults/KeyVaultExplore
 Vault URI                        : https://KeyVaultExplore.vault.azure.net
-Tenant ID                        : d52c9ea1-7c21-47b1-82a3-33a74b1f74b8
+Tenant ID                        : xxx
 SKU                              : Standard
 Enabled For Deployment?          : False
 Enabled For Template Deployment? : False
 Enabled For Disk Encryption?     : False
 Soft Delete Enabled?             :
 Access Policies                  :
-                                   Tenant ID                                  : d52c9ea1-7c21-47b1-82a3-33a74b1f74b8
-                                   Object ID                                  : 50ed9dee-808d-4c78-bd96-f5dcfd98d100
+                                   Tenant ID                                  : xxx
+                                   Object ID                                  : xxx
                                    Application ID                             :
                                    Display Name                               : Shekhar Shekhar
-                                   (chasrini@publicisgroupe.net)
+                                   (xxx)
                                    Permissions to Keys                        : get, create, delete, list, update,
                                    import, backup, restore, recover
                                    Permissions to Secrets                     : get, list, set, delete, backup,
@@ -911,11 +911,6 @@ https://docs.microsoft.com/en-us/azure/virtual-machines/linux/cli-manage
 https://docs.microsoft.com/en-us/azure/virtual-machines/azure-cli-arm-commands
 https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-list
 
-Name     : Publicis Groupe Azure Training - India (November)
-Id       : 170cf16c-77b6-4806-8a17-13b4e17d6187
-TenantId : d52c9ea1-7c21-47b1-82a3-33a74b1f74b8
-State    : Enabled
-
 Active Directory, ADFS, WS-FED, SAML		
 https://blogs.technet.microsoft.com/askpfeplat/2014/11/02/adfs-deep-dive-comparing-ws-fed-saml-and-oauth/
 https://blogs.technet.microsoft.com/askpfeplat/2014/11/23/adfs-deep-dive-planning-and-design-considerations/
@@ -1027,7 +1022,7 @@ Steps
 3. select a service principal json file (d:\azure\pcf\sp\azure-credentials.json) that covers subscr id, tenant id, app id (service-principal), authentication key
 4. get the pivotal network token (refresh token) from pivotal edit profile page (also called UAA-API-TOKEN)
 5. create or specify the resource group 
-6. select the location (central india for publicis where quota has been increased)
+6. select the location (central india for your organization where quota has been increased)
 
 
 Pivotal Network token
@@ -1163,21 +1158,21 @@ New-AzureRmKeyVault -VaultName "az533keyvault" -ResourceGroupName "az70533vm-rg"
 Vault Name                       : az533keyvault
 Resource Group Name              : az70533vm-rg
 Location                         : centralindia
-Resource ID                      : /subscriptions/170cf16c-77b6-4806-8a17-13b4e17d6187/resourceGroups/az70533vm-rg/pr
+Resource ID                      : /subscriptions/xxx/resourceGroups/az70533vm-rg/pr
                                    oviders/Microsoft.KeyVault/vaults/az533keyvault
 Vault URI                        : https://az533keyvault.vault.azure.net
-Tenant ID                        : d52c9ea1-7c21-47b1-82a3-33a74b1f74b8
+Tenant ID                        : xxx
 SKU                              : Standard
 Enabled For Deployment?          : False
 Enabled For Template Deployment? : False
 Enabled For Disk Encryption?     : False
 Soft Delete Enabled?             : 
 Access Policies                  : 
-                                   Tenant ID                                  : d52c9ea1-7c21-47b1-82a3-33a74b1f74b8
-                                   Object ID                                  : 50ed9dee-808d-4c78-bd96-f5dcfd98d100
+                                   Tenant ID                                  : xxxx
+                                   Object ID                                  : xxxx
                                    Application ID                             : 
                                    Display Name                               : Shekhar Shekhar 
-                                   (chasrini@publicisgroupe.net)
+                                   (xxxx)
                                    Permissions to Keys                        : get, create, delete, list, update, 
                                    import, backup, restore, recover
                                    Permissions to Secrets                     : get, list, set, delete, backup, 
