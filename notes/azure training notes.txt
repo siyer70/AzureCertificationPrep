@@ -1279,6 +1279,13 @@ cf-spring-brash-swan.cfapps.io
 
 https://blogs.msdn.microsoft.com/sanket/2017/11/02/api-management-quota-versus-rate-limits/
 
+
+Bring your own license (BYOL) images - 
+
+ClaimsIdentity and ClaimPrincipal
+https://dotnetcodr.com/2013/02/11/introduction-to-claims-based-security-in-net4-5-with-c-part-1/
+
+
 cf cli commands
 ===============
 Help
