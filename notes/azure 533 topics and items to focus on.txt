@@ -1,0 +1,56 @@
+Design and Implement Azure App Service Apps (10-15%)
+====================================================
+1. Deploy Web Apps
+	a. Define deployment slots; roll back deployments; 
+	b. implement pre- and post-deployment actions; 
+	c. create, configure, and deploy packages; 
+	d. create App Service plans; 
+	e. migrate Web Apps between App Service plans; 
+	f. create a Web App within an App Service plan; 
+	g. determine when to use App Service Environment (ASE); 
+	h. select and use appropriate deployment methods including Git, FTP, and cloud sync
+2. Configure Web Apps
+	a. Define and use app settings, connection strings, handlers, and virtual directories; 
+	b. configure certificates and custom domains; 
+	c. configure SSL bindings and runtime configurations; 
+	d. manage Web Apps by using Azure PowerShell and Azure-CLI; 
+	e. manage App Service backups; 
+	f. configure authentication and authorisation for Web Apps; 
+	g. configure Web App notifications
+3. Configure diagnostics, monitoring and analytics
+	a. Retrieve diagnostics data; 
+	b. view streaming logs; 
+	c. configure endpoint monitoring; 
+	d. configure alerts; 
+	e. configure diagnostics; 
+	f. use remote debugging; 
+	g. monitor Web App resources
+4. Configure Web Apps for scale and resilience
+	a. Configure auto-scale using built-in and custom schedules; 
+	b. configure by metric; change the size of an instance; 
+	c. configure Traffic Manager
+
+To revise
+1. Deploy Web Apps
+	a. Practice Define deployment slots - try auto-swap, swap - roll back deployments; 
+	b. read about implement pre- and post-deployment actions (possible scenarios and tools (see vsts release managment can be used))
+	g. determine when to use App Service Environment (ASE); 
+	h. select and use appropriate deployment methods including Git, FTP, and cloud sync
+2. Configure Web Apps
+	d. manage Web Apps by using Azure PowerShell and Azure-CLI
+		- try creating webapp using Powershell, CLI, REST, ARM templates
+		- create deployment slots via scripts, Deploy staging and production apps, swap production and staging and try rollback
+	e. manage App Service backups; 
+	f. configure authentication and authorisation for Web Apps; (try this out with all identity providers)
+	g. configure Web App notifications
+3. Configure diagnostics, monitoring and analytics (just revise the following)
+	a. Retrieve diagnostics data; 
+	c. configure endpoint monitoring; 
+	d. configure alerts; 
+	e. configure diagnostics; 
+	g. monitor Web App resources
+4. Configure Web Apps for scale and resilience
+	a. Configure auto-scale using built-in and custom schedules; (just revise once)
+	b. configure by metric; change the size of an instance; (just revise once)
+	c. configure Traffic Manager (try this case as practical)
+
