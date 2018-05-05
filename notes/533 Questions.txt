@@ -1,0 +1,56 @@
+01. Click Connect button in the Portal to connect to Linux vm that has not set the password
+02. Private address of the VM with Public Certificate
+03.
+
+04. 
+
+OMS
+Azure AD Connect
+ - User Account need to be created for synchronizing changes between on-Premise to Azure AD, 
+   What Orgnisation role shold be assigned using least privilege rule
+   - (Password Administrator, User Administrator, Service Administrator, Global Administrator, System Administrator)
+Availability Set
+Load Balancer
+Traffic Manager (2)
+- Low Latency
+- Select one option
+	- Only one instance (Weighted, Priority, Performance)
+	- Distributed Load (Weighted, Priority, Performance)
+	- Nearest region (Weighted, Priority, Peformance)
+Kubernate (2)
+	Output of kubectl get pods commands given (1/1 ready for backend deployment) - Task was to Increase number of instances size to 5 
+		Kubtectl (Autoscale, scale) --replicas (1,2,3,4,5) 
+Express Route (2)
+	- Select one of the options for the requirement (unlimited inbound, support 5000 routes, connect to global services, )
+		- Unlimited ExpressRoute Option with additional Premium 
+		- Unlimited ExpressRoute Option
+		- Metered ExpressRoute Option with additional Prem
+		- Metered ExpressRoute Option
+Site to Site VPN connection
+	Public address with VPN Device
+Automation
+- When to use Automation DSC vs Pull Server for each of the following option
+	- On Premise VM
+	- On Premise 
+	- Windows VM
+	- Linux VM
+- Runbook syntax with the command to start a vm with powershell command startAzureRMVM
+
+- How to take backup for both classic and Resource Manager objects
+	- Classic - (Backup Policy, Backup Agent, RecoveryServiceVault, ...)
+	- Resource Manager - (Backup Policy, Backup Agent, RecoveryServiceVault, ...)
+
+WebApp in Basic Tier - Enable Diagnostics
+specify Storage account Diagnostic.xml
+specify Storage account Service.cscg
+upgrade to Premium Tier
+
+FQDN (WebService.Contosso.com, WebService.azurewebsites.net, WebService.TrafficManager.net) 
+Record (CName Record, A Record, Txt Record)
+Target (WebService.Contosso.com, WebService.azurewebsites.net, WebService.TrafficManager.net) 
+
+RBAC
+
+
+Google Apps should be accessible
+	- Add users to a security Group that has access to Google Apps

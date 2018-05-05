@@ -579,7 +579,32 @@ Covers Application Insights, Azure Diagnostics, Performance counter
 https://docs.microsoft.com/en-us/azure/cloud-services/diagnostics-performance-counters
 
 Diagnostics
+
+a. Covers web server diagnostics
+	- Detailed Error Logging - (for HTTP status code that indicate a failure i.e >= 400)
+	- Failed Request Tracing - 
+		- trace of the IIS components used to process the request and the time taken 
+		- useful if u r attempting to improve the site performance or isolate what is causing the specific http error returned
+	- Web Server Logging
+		- to trace overall site metrics - number of requests handled or how many from specific ip address etc
+b. Covers Application Diagnostics
+		- Capture information produced by web Application. 
+		- ASP.NET can use System.Diagnostics.Trace class to log information (System.Diagnostics.Trace.TraceError)
+
 Enabling Diagnostics for Web Apps in Azure App Service
+Application Logging (FileSysetem) - automatically turns off after 12 hours
+Application Logging (Blob) - needs storage account and container - retention period can be set here
+
+Web Server Logging - Filesystem (allows FTP download) or Blob (Table storage or Blob Storage can be enabled) - retention period can be set
+
+Application Logs - /LogFiles/Application/
+Failed Request Logs - /LogFiles/W3SVC########/ (xml & xsl template)
+Detailed Error Logs - /LogFiles/DetailedErrors/ (html files)
+Web Server Logs - /LogFiles/http/RawLogs/
+Deployment Logs - /LogFiles/Git
+
+ 
+		
 https://docs.microsoft.com/en-us/azure/app-service/web-sites-enable-diagnostic-log
 
 
@@ -751,6 +776,9 @@ https://crpietschmann.github.io/Azure-70-532-Practice-Test/?
 
 Network Address classes
 https://technet.microsoft.com/en-us/library/cc940018.aspx
+
+Private IP addresses
+https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-2000-server/cc958825(v%3dtechnet.10)
 
 Subnet mask cheat sheet
 https://www.aelius.com/njh/subnet_sheet.html
@@ -1237,7 +1265,7 @@ logic app - esp securing the url to be called from third party
 App Service Env
 languages supported
 tiers and their broad features in common services
-dsc
+dsc - practicals
 use windows disk configuration tool to remap d:\ drive to another letter and then reclaim the d drive for your use
 Geo restore option in sql database and also see if there is anything called point in time restore option (in sql db or sql server)
 
@@ -1250,3 +1278,227 @@ Space:          development
 cf-spring-brash-swan.cfapps.io
 
 https://blogs.msdn.microsoft.com/sanket/2017/11/02/api-management-quota-versus-rate-limits/
+
+cf cli commands
+===============
+Help
+cf help
+
+Login
+cf login -a https://api.run.pivotal.io
+
+Push the app to PWS (Pivotal Web Services)
+cf push
+
+this will print the status of the push - look for routes: <your-application>-random-word.cfapps.io
+for ex: cf-spring-brash-swan.cfapps.io
+
+Access Log files
+cf logs cf-spring --recent
+
+Live Stream Logs
+cf logs cf-spring
+
+Access environment variables
+cf env <your-app-name> for ex: cf env cf-spring
+
+Look for services in marketplace - for example elephantSQL plans
+cf marketplace -s elephantsql
+
+(MongoDB HA instance)
+cf marketplace -s mlab 
+
+(Redis - paid service)
+cf marketplace -s rediscloud 
+
+(Rabbit MQ) 
+cf marketplace -s cloudamqp 
+
+Create service command for using elephantsql (turtle is a free tier) 
+cf create-service elephantsql turtle cf-spring-db
+
+Binding the newly created service to your app
+cf bind-service cf-spring cf-spring-db
+
+After binding environment variables are updated - use push or restage or restart command to see the changes in env variables
+cf restart cf-spring
+
+Verify the new service is bound to the app
+cf services
+
+remote debugging on vm
+https://docs.microsoft.com/en-us/visualstudio/debugger/remote-debugging-azure#remote_debug_azure_vm
+
+automation account, dsc configuration, node configuration, dsc nodes
+https://docs.microsoft.com/en-us/azure/automation/automation-dsc-getting-started
+
+Local configuration Manager (LCM - is the engine for DSC
+https://docs.microsoft.com/en-us/powershell/dsc/metaConfig
+
+Runbook
+https://docs.microsoft.com/en-us/azure/automation/automation-starting-a-runbook
+
+Azure Scheduler
+https://docs.microsoft.com/en-in/azure/scheduler/scheduler-get-started-portal
+
+using redis data types in .net
+http://taswar.zeytinsoft.com/redis-list/
+
+Deploying webjob using ARM Powershell Cmdlet
+https://github.com/projectkudu/kudu/wiki/Deploying-a-WebJob-using-PowerShell-ARM-Cmdlets
+https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-os-disk-and-data-disk-existing-vnet/azuredeploy.json
+
+Deploying 2vms in loadbalancer with loadbalancing rules
+https://github.com/Azure/azure-quickstart-templates/blob/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json
+
+
+Querying on Azure CLI output (--query parameter in azure cli)
+https://docs.microsoft.com/en-us/cli/azure/query-azure-cli?view=azure-cli-latest
+
+following command prints list of azure locations that can be used for location parameter in azure powershell and cli
+az account list-locations --query '[].{name:name}' -o table
+
+
+Creating a vm with simplest command
+New-AzureRmVM -Name "az533vmps" -Credential $cred
+
+Create a new resource group
+New-AzureRmResourceGroup -Name "az533vm2-rg" -Location centralindia
+
+Creating a new availability set
+New-AzureRmAvailabilitySet -Location centralindia -Name az533vm2-aset -ResourceGroupName az533vm2-rg -Managed -PlatformFaultDomainCount 2 -PlatformUpdateDomainCount 4
+
+Remove availability set
+Remove-AzureRmAvailabilitySet -ResourceGroupName az533vm2-rg -Confirm -Force -Name az533vm2-aset
+
+Create a new vm with parameters
+New-AzureRmVM -ResourceGroupName "az533vm2-rg" -Location "centralindia" -Name "az533vm2" -VirtualNetworkName "az533vm2-vnet" -SubnetName "az533vm2-subnet" -PublicIpAddressName "az533vm2-ip" -SecurityGroupName "az533vm2-nsg" -OpenPorts 80,3389 -AllocationMethod Static -AvailabilitySetName "az533vm2-aset" -Credential $cred
+
+List of all resource group names and their location
+Get-AzureRmResourceGroup | Select-Object ResourceGroupName, Location
+
+List all resources within a resource group
+Get-AzureRmResource | where ResourceGroupName -eq 'az533vmps' | Select-Object Name, ResourceType, ResourceName
+
+Examine specific property of vm
+Get-AzureRmVM | Where ResourceGroupName -eq 'az533vmps' | Select-Object -ExpandProperty StorageProfile | Select-Object -ExpandProperty ImageReference
+
+Get the image publisher list
+Get-AzureRmVMImagePublisher -Location "CentralIndia"
+
+Image Offer list for Publisher
+Get-AzureRmVMImageOffer -Location "CentralIndia" -PublisherName "MicrosoftWindowsServer"
+
+Image sku list for Publisher and Image offer
+Get-AzureRmVMImageSku -Location "CentralIndia" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
+for ex: 2016-Datacenter
+
+Get vm sizes for specific location
+Get-AzureRmVMSize -Location "CentralIndia"
+or
+Get-AzureRmVMSize -ResourceGroupName "az533vmlinux-rg" -VMName "az533vmlinux"
+
+Upgrading the vmsize using hardware profile parameter
+$vm = Get-AzureRMVM -ResourceGroupName "az533vmlinux-rg" -Name "az533vmlinux" 
+$vm.HardwareProfile.VmSize = "Standard_D2_v2"
+Update-AzureRMVM -ResourceGroupName "az533vmlinux-rg" -VM $vm
+
+You can pass this in the imageName parameter of the New-AzureRMVM
+for ex:
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupVM" `
+    -Name "myVM2" `
+    -Location "Central India" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress2" `
+    -ImageName "MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest" `
+    -Credential $cred `
+    -AsJob
+
+DSC Resources
+https://docs.microsoft.com/en-us/powershell/dsc/builtinresource
+
+Configure point to site connection
+01. Create a Virtual Network and subnet
+02. Add a gateway subnet
+03. Specify DNS Server (Optional)
+04. Create a Virtual Network Gateway
+05. Generate Certificates
+	root certificate (enterprise certificate or self-signed root certificate)
+	client certificates (client certificates are generated based on the root certificates)
+06. Add the client address pool (every vpn client will be given an address from this pool when connected)
+07. Configure tunnel type (IKEv2 or SSL VPN (SSTP))
+08. Authentication type - Azure Certificate or RADIUS authentication (always Azure Certificate)
+09. Install the client certificates on client machine-scale-sets/virtual-machine-scale-sets-placement-groups
+10. Generate and Install vpn client configurations 
+https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal
+
+Configure site to site connection
+01. Create a Virtual Network and subnet
+02. Specify DNS Server (Optional)
+03. Create the gateway subnet (i.e. name should be GatewaySubnet - VPN Gateway internally uses this) 
+		- typical cidr block xxx /27 or xxx /28 for ex: 10.1.255.0/27
+04. Create the VPN Gateway (Virtual Network Gateway)
+		- Name
+		- Gateway Type = VPN (other option could be Express Route - but in this case we need to select VPN)
+		- VPN type = Route Based (other option could be Policy Type)
+		- SKU = VpnGw1 (30 max connections, 650 Mbps)
+			- VpnGw2 (30 max connections, 1 Gbps)
+			- VpnGw3 (30 max connections, 1.25 Gbps)
+			- Basic (10 max connections, 100 Mbps)
+		- Specify Virtual Network
+		- Specify First IP Configuration (Public ip configuration)
+		- Click Create Button
+05. Create Local Network Gateway
+		- Name (your on-premise Site Name - for ex: Site 1)
+		- IP Address (Public IP Address of your on-premise VPN Devise that you want Azure connect)
+		- Address Space (your on-premise local network address range - you can provide multi-address ranges without overlapping)
+		- Configure BGP Settings (leave it unchecked)
+		- Subscription
+		- Location
+		- Resource Group
+		- Click Create Button
+06. Configure Your VPN device
+		- Specify the Shared key (common secret code - this will be used when creating site to site VPN connection)
+		- The public IP Address of the Virtual Network Gateway (that we setup in step 4)
+07. Create the VPN Connection (create the site-to-site vpn connection between your Virtual Network Gateway and on-premises VPN device)
+		- Navigate to the virtual network gateway by going to your virtual nework -> overview -> connected devices -> select your vpn gateway
+		- Click Add Connection
+			- Name
+			- Connection Type = Site to Site (IPSec)
+			- Virtual network gateway
+			- Local network gateway
+			- Shared Key (see step 6 - Shared Key - this should have the same value)
+			- Subscription
+			- Location
+			- Resource Group
+			- Press OK
+08. Verify the VPN Connection
+https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
+
+Adding a custom domain in Azure Active Directory
+https://docs.microsoft.com/en-us/azure/active-directory/add-custom-domain
+
+AD connect topologies (different scenarios for synchornizing AD to Azure AD)
+https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-topologies
+
+SQL Database recovery
+https://docs.microsoft.com/en-us/azure/sql-database/sql-database-recovery-using-backups
+https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview
+https://azure.microsoft.com/en-in/blog/azure-sql-database-geo-restore/
+https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-portal
+
+classic model question (may not be relevant anymore)
+Adding vm image to repository
+
+q0h$]0m"3Olsfe(.g$845}mK
+
+FB APPID: 431294583963816
+FB SECRET: 195b1eca38a5aa1a576d2c765d57b0e3
+
+https://login.microsoftonline.com/te/az533abc.onmicrosoft.com/oauth2/authresp
+
+Wuxa1587
+
