@@ -54,3 +54,8 @@ RBAC
 
 Google Apps should be accessible
 	- Add users to a security Group that has access to Google Apps
+
+
+Select one of the options
+	- Certificate and Service Principal
+	- 
