@@ -1,16 +1,16 @@
 Design Compute Infrastructure (20-25%)
 	- Design solutions using virtual machines (VMs)
 		- Design VM deployments by leveraging availability sets, fault domains, and update domains in Azure
-		- use web app for containers
+		- use web app for containers (TODO)
 		- design VM Scale Sets
-		- design for compute-intensive tasks using Azure Batch and Azure Batch AI
-		- define a migration strategy from cloud services
+		- design for compute-intensive tasks using Azure Batch and Azure Batch AI (TODO)
+		- define a migration strategy from cloud services (migration from cloud services to service fabric) - (TODO)
 		- determine when to use reserved instances
-		- design for VMs in a DevTest Lab environment (including formulas, images, artifacts, claiming and un-claiming VMs)
-		- determine when to use Accelerated Networking
-		- recommend use of Azure Backup and Azure Site Recovery including support for Linux in Azure Backup and integrating Azure Backup in the VM creation process
-		- recommend when to use availability zones	
-	- Design solutions for serverless computing
+		- design for VMs in a DevTest Lab environment (including formulas, images, artifacts, claiming and un-claiming VMs) - (TODO)
+		- determine when to use Accelerated Networking (TODO)
+		- recommend use of Azure Backup and Azure Site Recovery including support for Linux in Azure Backup and integrating Azure Backup in the VM creation process (TODO)
+		- recommend when to use availability zones	(TODO)
+	- Design solutions for serverless computing (TODO)
 		- Use Azure Functions to implement event-driven actions
 		- design data storage solutions for serverless computing
 		- design for serverless computing using Azure Container Instances
@@ -18,7 +18,7 @@ Design Compute Infrastructure (20-25%)
 		- determine when to use API management service
 		- design event routing solutions using Azure Event Grid
 		- design solutions that integrate stream processing and bot messaging	
-	- Design microservices-based solutions
+	- Design microservices-based solutions (TODO)
 		- Determine when a container-based solution is appropriate
 		- determine when container-orchestration is appropriate
 		- determine when Azure Service Fabric (ASF) is appropriate
@@ -31,57 +31,61 @@ Design Compute Infrastructure (20-25%)
 	- Design web applications
 		- Design Azure App Service Web Apps
 		- design custom web API
-		- secure Web API
+		- secure Web API (TODO)
 		- design Web Apps for scalability and performance
-		- design for high availability using Azure Web Apps in multiple regions
+		- design for high availability using Azure Web Apps in multiple regions (TODO)
 		- determine which App service plan to use
-		- design Web Apps for business continuity
-		- determine when to use Azure App Service Isolated
+		- design Web Apps for business continuity (TODO)
+		- determine when to use Azure App Service Isolated (TODO)
 		- design for API apps
 		- determine when to use API management service
-		- determine when to use Web Apps on Linux
-		- determine when to use a CDN
+		- determine when to use Web Apps on Linux (TODO)
+		- determine when to use a CDN (HANDS-ON)
 		- determine when to use a cache, including Azure Redis cache	
-	- Create compute-intensive applications
+	- Create compute-intensive applications (TODO)
 		- Design high-performance computing (HPC) and other compute-intensive applications using Azure Services
-		- determine when to use Azure Batch
+		- determine when to use Azure Batch 
 		- design stateless components to accommodate scale
 		- design lifecycle strategy for Azure Batch
-		- design solution that implement low priority batching and job task counting	
+		- design solution that implement low priority batching and job task counting
 
 Design Data Implementation (15-20%)
 	- Design for Azure Storage Solutions
-		- Determine when to use Azure Blob Storage, 
-			blob tiers (hot, cool, archive), 
-			Azure Files, 
-			disks, 
-			Azure Data Box, 
-			Azure Storage Service Encryption, 
-			and Azure StorSimple		
-	- Design for Azure Data Services
-		- Determine when to use Azure Data Catalog, 
-			Azure Data Factory, 
-			Azure SQL Data Warehouse, 
-			Azure Data Lake Analytics, 
-			Azure Analysis Services, 
-			and Azure HDInsight
+		- Determine when to use 
+			- Azure Blob Storage, 
+			- Blob tiers (hot, cool, archive), 
+			- Azure Files 
+			- Disks
+			- Azure Data Box (TODO)
+			- Azure Storage Service Encryption
+			- Azure StorSimple (TODO)		
+	- Design for Azure Data Services (TODO)
+		- Determine when to use 
+			- Azure Data Catalog 
+			- Azure Data Factory 
+			- Azure SQL Data Warehouse 
+			- Azure Data Lake Analytics 
+			- Azure Analysis Services 
+			- Azure HDInsight
 	- Design for relational database storage
-		- Determine when to use Azure SQL Database and SQL Server Stretch Database
-		- design for scalability and features
-		- determine when to use Azure Database for MySQL and Azure Database for PostgreSQL
+		- Determine when to use 
+			- Azure SQL Database
+			- SQL Server Stretch Database (TODO)
+		- design for scalability and features (TODO)
+		- determine when to use Azure Database for MySQL and Azure Database for PostgreSQL (TODO)
 		- design for HA/DR, geo-replication
 		- design a backup and recovery strategy
-		- design optimization strategies for Azure SQL Data Warehouse columnar storage
+		- design optimization strategies for Azure SQL Data Warehouse columnar storage (TODO)
 	- Design for NOSQL Storage
 		- Determine when to use 
 			- Azure Redis Cache
 			- Azure Table Storage
-			- Azure Data Lake
+			- Azure Data Lake (TODO)
 			- Azure Search
-			- Time Series Insights; 
+			- Time Series Insights (TODO)
 		- design pipelines for managing recurring jobs
 	- Design for CosmosDB Storage
-		- Determine when to use 
+		- Determine when to use  (HANDS-ON)
 			- MongoDB API 
 			- Azure Cosmos DB SQL API
 			- Graph API
@@ -92,22 +96,28 @@ Design Networking Implementation (15-20%)
 	- Design Azure virtual networks
 		- Design solutions that use Azure networking services: 
 			- design for load balancing using Azure Load Balancer and Azure Traffic Manager
-			- define DNS, DHCP, and IP strategies
+			- define DNS, DHCP, and IP strategies (TODO)
 			- determine when to use Azure Application Gateway
-			- determine when to use virtual network (VNet) service endpoints
-			- determine when to use multi-node application gateways, Traffic Manager and load balancers
-	- Design external connectivity for Azure Virtual Networks
-		- Determine when to use Azure VPN, Azure ExpressRoute and Virtual Network Peering architecture and design
+			- determine when to use virtual network (VNet) service endpoints (TODO)
+			- determine when to use 
+				- Multi-node application gateways (TODO)
+				- Traffic Manager
+				- Load balancers
+	- Design external connectivity for Azure Virtual Networks (TODO)
+		- Determine when to use 
+			- Azure VPN
+			- Azure ExpressRoute 
+			- Virtual Network Peering architecture and design
 		- determine when to use User Defined Routes (UDRs)
 		- determine when to use VPN gateway site-to-site failover for ExpressRoute
-		- determine when to use the Container Networking Interface (CNI) plugin
+		- determine when to use the Container Networking Interface (CNI) plugin 
 		- design solutions that use Global VNet Peering
-	- Design security strategies
+	- Design security strategies (TODO)
 		- Determine when to use network virtual appliances
 		- design a perimeter network (DMZ)
 		- determine when to use a Web Application Firewall (WAF), Network Security Group (NSG), and virtual network service tunneling
 		- organize resources by designing solutions that use service tags
-	- Design connectivity for hybrid applications
+	- Design connectivity for hybrid applications (TODO)
 		- Design connectivity to 
 			- on-premises data from Azure applications using Azure Relay Service
 			- Azure Data Management Gateway for Data Factory
@@ -118,16 +128,16 @@ Design Networking Implementation (15-20%)
 
 Design Security and Identity Solutions (20-25%)
 	- Design an identity solution
-		- Design AD Connect synchronization
+		- Design AD Connect synchronization 
 		- design federated identities using Active Directory Federation Services (AD FS)
 		- design solutions for Multi-Factor Authentication (MFA)
 		- design an architecture using Active Directory on-premises and Azure Active Directory (AAD)
-		- determine when to use Azure AD Domain Services
-		- design security for Mobile Apps using AAD
+		- determine when to use Azure AD Domain Services (TODO)
+		- design security for Mobile Apps using AAD (TODO)
 	- Secure resources by using identity providers
 		- Design solutions that use external or consumer identity providers such as Microsoft account, Facebook, Google, and Yahoo
 		- determine when to use Azure AD B2C and Azure AD B2B
-		- design mobile apps using AAD B2C or AAD B2B
+		- design mobile apps using AAD B2C or AAD B2B (TODO)
 	- Design a data security solution
 		- Design data security solutions for Azure services
 		- determine when to use 
@@ -143,10 +153,10 @@ Design Security and Identity Solutions (20-25%)
 		- Determine when to use Azure RBAC standard roles and custom roles
 		- define an Azure RBAC strategy
 		- determine when to use Azure resource policies
-		- determine when to use Azure AD Privileged Identity Management
+		- determine when to use Azure AD Privileged Identity Management (TODO)
 		- design solutions that use Azure AD Managed Service Identity
-		- determine when to use HSM-backed keys
-	- Manage security risks by using an appropriate security solution
+		- determine when to use HSM-backed keys (TODO)
+	- Manage security risks by using an appropriate security solution (TODO)
 		- Identify, assess, and mitigate security risks by using 
 			- Azure Security Center 
 			- Operations Management Suite Security and Audit solutions, and other services 
@@ -155,13 +165,13 @@ Design Security and Identity Solutions (20-25%)
 		- determine an appropriate endpoint protection strategy
 
 Design Solutions by using Platform Services (10-15%)
-	- Design for Artificial Intelligence Services
+	- Design for Artificial Intelligence Services (TODO)
 		- Determine when to use 
 			- the appropriate Cognitive Services, 
 			- Azure Bot Service
 			- Azure Machine Learning
 			- and other categories that fall under cognitive AI
-	- Design for IoT
+	- Design for IoT (TODO)
 		- Determine when to use 
 			- Azure Stream Analytics
 			- Azure IoT Hubs
@@ -172,12 +182,12 @@ Design Solutions by using Platform Services (10-15%)
 			- Azure Notification Hubs
 			- Event Grid
 			- and other services that fall under IoT
-	- Design messaging solution architectures
+	- Design messaging solution architectures (TODO)
 		- Design a messaging architecture
 		- determine when to use Azure Storage Queues, Azure Service Bus, Azure Event Hubs, Azure Event Grid, Azure Relay, Azure Functions, and Azure Logic Apps
 		- design a push notification strategy for Mobile Apps
 		- design for performance and scale
-	- Design for media service solutions
+	- Design for media service solutions (TODO)
 		- Define solutions using Azure Media Services, video indexer, video API, computer vision API, preview, and other media related services
 		- design solutions that use file-based encoding or Azure Media Analytics
 
@@ -189,21 +199,21 @@ Design for Operations (10-15%)
 		- define a solution for monitoring applications and enabling alerts using Application Insights	
 	- Design a platform monitoring and alerting strategy
 		- Determine the appropriate Microsoft products and services for monitoring Azure platform solutions
-		- define a monitoring solution using Azure Health, Azure Advisor, and Activity Log
-		- define a monitoring solution for Azure Networks using Log Analytics and Network Watcher service
-		- monitor security with Azure Security Center
-		- design TCP connections	
+		- define a monitoring solution using Azure Health, Azure Advisor, and Activity Log (TODO)
+		- define a monitoring solution for Azure Networks using Log Analytics and Network Watcher service (TODO)
+		- monitor security with Azure Security Center (TODO)
+		- design TCP connections (TODO)
 	- Design an operations automation strategy
 		- Determine when to use 
 			- Azure Automation
-			- Chef
+			- Chef (TODO)
 			- Puppet
 			- PowerShell
 			- Azure Automation (DSC)
 			- Event Grid and Azure Logic Apps
 		- define a strategy for auto-scaling
-		- define a strategy for enabling periodic processes and tasks
-		- define an update management strategy
+		- define a strategy for enabling periodic processes and tasks (CHECK)
+		- define an update management strategy (CHECK)
 
 Low Priority VMs
 https://azure.microsoft.com/en-in/pricing/details/batch/
