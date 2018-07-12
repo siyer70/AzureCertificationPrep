@@ -1,13 +1,32 @@
 Design Compute Infrastructure (20-25%)
 	- Design solutions using virtual machines (VMs)
-		- Design VM deployments by leveraging availability sets, fault domains, and update domains in Azure
 		- use web app for containers (TODO)
-		- design VM Scale Sets
+			notes
+				Advantages
+					- Time to Market
+					- Developer Productivity
+					- Quick Updates
+					- Global Scale
+					- Hybrid consistency
+					- Enterprise Grade Services
+					- Portability
+				following link covers App Service on Linux 
+				https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-custom-docker-image
+				https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-nodejs
+				https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-java
+
 		- design for compute-intensive tasks using Azure Batch and Azure Batch AI (TODO)
 		- define a migration strategy from cloud services (migration from cloud services to service fabric) - (TODO)
-		- determine when to use reserved instances
+			notes
+				- Azure Migrate for assessment
+				- Azure Site Recovery and Azure Database Migration for moving the machines to azure
+		- determine when to use reserved instances (TODO)
+			notes
+				http://msandbu.org/microsoft-azure-reserved-instances-and-pitfalls/
 		- design for VMs in a DevTest Lab environment (including formulas, images, artifacts, claiming and un-claiming VMs) - (TODO)
 		- determine when to use Accelerated Networking (TODO)
+			notes
+				https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli
 		- recommend use of Azure Backup and Azure Site Recovery including support for Linux in Azure Backup and integrating Azure Backup in the VM creation process (TODO)
 		- recommend when to use availability zones	(TODO)
 	- Design solutions for serverless computing (TODO)
@@ -20,28 +39,81 @@ Design Compute Infrastructure (20-25%)
 		- design solutions that integrate stream processing and bot messaging	
 	- Design microservices-based solutions (TODO)
 		- Determine when a container-based solution is appropriate
+			notes
+				It is appropriate
+				- when you are creating app with a micro service architecture
+				- when Implementing DEVOPS practices (containers provide infrastructure as code)
+				- when you desire 100% compatibility across on-premise, Azure and other cloud providers (containers run the same regardless)
+				- for Agile delivery environments
 		- determine when container-orchestration is appropriate
+			notes
+				- The task of automating and managing large number of containers and how they interact is known as Orchestration
+				- It provides service such as 
+					- Coordinated Deployments
+					- Load Balancing
+					- Automated FailOver
+				- It is appropriate
+					- in a multi-container situation with support for self healing scenarios (monitoring containers and restarting it when needed)
+					- in a multi-container situation with support for horizontal scaling without administrator intervention
+					- in a multi-container and multi-tiered applications, to scale at different times or based on some criteria
+					- for load balancing multiple containers across a single DNS name
+					- for container migrations or deployments
+					- for applications that use microservice architecture
+				- Simply, you need an Orchestrator, 
+					- if you need to perform an action based on multiple containers
+					- or work with applications having mulit-container architectures
 		- determine when Azure Service Fabric (ASF) is appropriate
+			notes
+				- It is a distributed system platform that makes it easy to package, deploy and manage scalable and reliable microservices & containers.
+				- It is ideal when orchestrating and deploying microservices in containers across a cluster of machines
+				- It provides ultra-fast, highly available and scalable application fabric  
 		- determine when Azure Functions is appropriate
+			notes
+				- It is most appropriate when
+					- you want to run snippets of code
+					- you want to use serverless infrastrcuture to run code snippets
+					- integrate with third party apps
+					- or run apps like Logic Apps
 		- determine when to use API management service
+			notes
+				- Think of API Management as API Store
+				- Use it
+					- when you want to standardize how and when your developers use APIs
+						- especially, if you dont have a great model for managing and streamlining the use of APIs
+					- when you need a central repository for API Management
+					- when you want to add, test, rollout or rollback API access for internal or external users
+					- when you want to deploy an easy to use and fully authenticated portal for developers to use to request access to APIs
+					- when you want to fully document APIs, their connection and call details and other details that can be easily provided to developers
+					- when you want to monitor any aspect of API including
+						- availability
+						- performance
+						- deep insights
+						- request and response
+				- In addition to managing your own APIs, you can also use it manage third party APIs that are used by your developers
+				- You can gate access using API keys and applying advanced security policies (regardless where it is running)
 		- determine when Web API is appropriate
+			notes
+			- Web API defines the resources, relationships, and navigation schemes accessible to client applications.
+			use it
+				- when you want to expose using REST actions of a web app. 
+				- Some of these actions may include GET, POST, PUT, DELETE, or any other functions including custom functions. 
+
+				- when you want to directly monitor your API. This includes availability, performance, usage data, and deep applications insights. 
+				- Monitoring can also track information about requests, responses and more.				
+			Web API is appropriate 
+				- when you need these capabilities and you want to maintain responsiveness, scalability and availability across the requests.
 		- determine which platform is appropriate for container orchestration
 		- consider migrating existing assets versus cloud native deployment
 		- design lifecycle management strategies
 	- Design web applications
-		- Design Azure App Service Web Apps
-		- design custom web API
+		- design custom web API (TODO)
 		- secure Web API (TODO)
-		- design Web Apps for scalability and performance
 		- design for high availability using Azure Web Apps in multiple regions (TODO)
-		- determine which App service plan to use
+		- determine which App service plan to use (TODO)
 		- design Web Apps for business continuity (TODO)
 		- determine when to use Azure App Service Isolated (TODO)
-		- design for API apps
-		- determine when to use API management service
 		- determine when to use Web Apps on Linux (TODO)
 		- determine when to use a CDN (HANDS-ON)
-		- determine when to use a cache, including Azure Redis cache	
 	- Create compute-intensive applications (TODO)
 		- Design high-performance computing (HPC) and other compute-intensive applications using Azure Services
 		- determine when to use Azure Batch 
@@ -52,16 +124,30 @@ Design Compute Infrastructure (20-25%)
 Design Data Implementation (15-20%)
 	- Design for Azure Storage Solutions
 		- Determine when to use 
-			- Azure Blob Storage, 
-			- Blob tiers (hot, cool, archive), 
-			- Azure Files 
-			- Disks
 			- Azure Data Box (TODO)
-			- Azure Storage Service Encryption
 			- Azure StorSimple (TODO)		
 	- Design for Azure Data Services (TODO)
 		- Determine when to use 
 			- Azure Data Catalog 
+			notes
+				- by providing a central store for data consumers and data creators that make data sources discoverable and understandable for those users that 
+				need to work with them. 
+				- These cloud services allow you to register a data source by copying to the Data Catalog 
+					- data source’s metadata 
+					- and also to a reference to its location.
+				- You can also attach documentation and requesting procedures.
+				- Two different types of metadata a) Structural (columns & types) and Descriptive (descriptions and tags)
+				- user needs to be a member of the Azure Active Directory associated with your subscription.
+				Steps
+					- sign in to (https://www.azuredatacatalog.com)
+					- select "Publish" button on the upper-right corner
+					- In the "Publish your data now!" page, click on Launch Application button
+					- This will download "Azure Data Catalog" Application for registering your data source
+					- After installing and running, sign in using your active directory account
+					- Select the data source type that you want to register and click next (for ex: Azure Blob)
+					- Provide the details associated with data source type - for Azure Blob: 
+						- Account name and access key 
+						- select the blob(s)
 			- Azure Data Factory 
 			- Azure SQL Data Warehouse 
 			- Azure Data Lake Analytics 
@@ -69,21 +155,19 @@ Design Data Implementation (15-20%)
 			- Azure HDInsight
 	- Design for relational database storage
 		- Determine when to use 
-			- Azure SQL Database
 			- SQL Server Stretch Database (TODO)
+			notes
+				https://docs.microsoft.com/en-us/sql/sql-server/stretch-database/stretch-database?view=sql-server-2017
 		- design for scalability and features (TODO)
 		- determine when to use Azure Database for MySQL and Azure Database for PostgreSQL (TODO)
-		- design for HA/DR, geo-replication
-		- design a backup and recovery strategy
+		- design for HA/DR, geo-replication (REVISE)
+		- design a backup and recovery strategy (REVISE)
 		- design optimization strategies for Azure SQL Data Warehouse columnar storage (TODO)
 	- Design for NOSQL Storage
 		- Determine when to use 
-			- Azure Redis Cache
-			- Azure Table Storage
 			- Azure Data Lake (TODO)
-			- Azure Search
 			- Time Series Insights (TODO)
-		- design pipelines for managing recurring jobs
+		- design pipelines for managing recurring jobs (TODO)
 	- Design for CosmosDB Storage
 		- Determine when to use  (HANDS-ON)
 			- MongoDB API 
@@ -95,14 +179,10 @@ Design Data Implementation (15-20%)
 Design Networking Implementation (15-20%)
 	- Design Azure virtual networks
 		- Design solutions that use Azure networking services: 
-			- design for load balancing using Azure Load Balancer and Azure Traffic Manager
 			- define DNS, DHCP, and IP strategies (TODO)
-			- determine when to use Azure Application Gateway
 			- determine when to use virtual network (VNet) service endpoints (TODO)
 			- determine when to use 
 				- Multi-node application gateways (TODO)
-				- Traffic Manager
-				- Load balancers
 	- Design external connectivity for Azure Virtual Networks (TODO)
 		- Determine when to use 
 			- Azure VPN
@@ -128,38 +208,26 @@ Design Networking Implementation (15-20%)
 
 Design Security and Identity Solutions (20-25%)
 	- Design an identity solution
-		- Design AD Connect synchronization 
-		- design federated identities using Active Directory Federation Services (AD FS)
-		- design solutions for Multi-Factor Authentication (MFA)
-		- design an architecture using Active Directory on-premises and Azure Active Directory (AAD)
 		- determine when to use Azure AD Domain Services (TODO)
 		- design security for Mobile Apps using AAD (TODO)
 	- Secure resources by using identity providers
-		- Design solutions that use external or consumer identity providers such as Microsoft account, Facebook, Google, and Yahoo
-		- determine when to use Azure AD B2C and Azure AD B2B
+		- Design solutions that use external or consumer identity providers such as Microsoft account, Facebook, Google, and Yahoo (REVISE)
 		- design mobile apps using AAD B2C or AAD B2B (TODO)
 	- Design a data security solution
-		- Design data security solutions for Azure services
-		- determine when to use 
+		- determine when to use (HANDS-ON)
 			- Azure Storage encryption
 			- Azure Disk Encryption
 			- Azure SQL Database security capabilities
 			- Azure Key Vault
-		- design for protecting secrets in ARM templates using Azure Key Vault
-		- design for protecting application secrets using Azure Key Vault
-		- design a solution for managing certificates using Azure Key Vault
-		- design solutions that use Azure AD Managed Service Identity
 	- Design a mechanism of governance and policies for administering Azure resources
-		- Determine when to use Azure RBAC standard roles and custom roles
-		- define an Azure RBAC strategy
-		- determine when to use Azure resource policies
+		- define an Azure RBAC strategy (TODO)
+		- determine when to use Azure resource policies (TODO)
 		- determine when to use Azure AD Privileged Identity Management (TODO)
-		- design solutions that use Azure AD Managed Service Identity
 		- determine when to use HSM-backed keys (TODO)
 	- Manage security risks by using an appropriate security solution (TODO)
 		- Identify, assess, and mitigate security risks by using 
-			- Azure Security Center 
-			- Operations Management Suite Security and Audit solutions, and other services 
+			- Azure Security Center (HANDS-ON)
+			- Operations Management Suite Security and Audit solutions, and other services (HANDS-ON)
 		- determine when to use Azure AD Identity Protection
 		- determine when to use Advanced Threat Detection
 		- determine an appropriate endpoint protection strategy
@@ -192,12 +260,12 @@ Design Solutions by using Platform Services (10-15%)
 		- design solutions that use file-based encoding or Azure Media Analytics
 
 Design for Operations (10-15%)
-	- Design an application monitoring and alerting strategy
+	- Design an application monitoring and alerting strategy (HANDS-ON)
 		- Determine the appropriate Microsoft products and services for monitoring applications on Azure
 		- define solutions for analyzing logs and enabling alerts using Azure Log Analytics
 		- define solutions for analyzing performance metrics and enabling alerts using Azure Monitor
 		- define a solution for monitoring applications and enabling alerts using Application Insights	
-	- Design a platform monitoring and alerting strategy
+	- Design a platform monitoring and alerting strategy (TODO)
 		- Determine the appropriate Microsoft products and services for monitoring Azure platform solutions
 		- define a monitoring solution using Azure Health, Azure Advisor, and Activity Log (TODO)
 		- define a monitoring solution for Azure Networks using Log Analytics and Network Watcher service (TODO)
@@ -205,33 +273,10 @@ Design for Operations (10-15%)
 		- design TCP connections (TODO)
 	- Design an operations automation strategy
 		- Determine when to use 
-			- Azure Automation
 			- Chef (TODO)
-			- Puppet
-			- PowerShell
-			- Azure Automation (DSC)
+			- Puppet (TODO)
+			- Azure Automation (DSC) (HANDS-ON)
 			- Event Grid and Azure Logic Apps
-		- define a strategy for auto-scaling
-		- define a strategy for enabling periodic processes and tasks (CHECK)
-		- define an update management strategy (CHECK)
-
-Low Priority VMs
-https://azure.microsoft.com/en-in/pricing/details/batch/
-
-Azure Reserved Instances
-http://msandbu.org/microsoft-azure-reserved-instances-and-pitfalls/
-
-Use Web App for Container
-Advantages
-	- Time to Market
-	- Developer Productivity
-	- Quick Updates
-	- Global Scale
-	- Hybrid consistency
-	- Enterprise Grade Services
-	- Portability
-covers App Service on Linux 
-https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-custom-docker-image
-https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-nodejs
-https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-java
+		- define a strategy for enabling periodic processes and tasks (TODO)
+		- define an update management strategy (TODO)
 

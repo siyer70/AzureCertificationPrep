@@ -1,0 +1,97 @@
+Design Compute Infrastructure (20-25%)
+	- Design solutions using virtual machines (VMs)
+		- design for compute-intensive tasks using Azure Batch and Azure Batch AI (TODO)
+	- Design solutions for serverless computing (TODO)
+		- Use Azure Functions to implement event-driven actions
+		- design data storage solutions for serverless computing
+		- design for serverless computing using Azure Container Instances
+		- design application solutions by using Azure Logic Apps, Azure Functions, or both
+		- determine when to use API management service
+		- design event routing solutions using Azure Event Grid
+		- design solutions that integrate stream processing and bot messaging	
+	- Design microservices-based solutions (TODO)
+		- Determine when a container-based solution is appropriate
+		- determine when container-orchestration is appropriate
+		- determine when Azure Service Fabric (ASF) is appropriate
+		- determine which platform is appropriate for container orchestration
+		- consider migrating existing assets versus cloud native deployment
+		- design lifecycle management strategies
+	- Create compute-intensive applications (TODO)
+		- Design high-performance computing (HPC) and other compute-intensive applications using Azure Services
+		- determine when to use Azure Batch 
+		- design stateless components to accommodate scale
+		- design lifecycle strategy for Azure Batch
+		- design solution that implement low priority batching and job task counting
+
+Design Data Implementation (15-20%)
+	- Design for Azure Storage Solutions
+		- Determine when to use 
+			- Azure Data Box (TODO)
+			- Azure StorSimple (TODO)		
+	- Design for Azure Data Services (TODO)
+		- Determine when to use 
+			- Azure Data Catalog 
+			- Azure Data Factory 
+			- Azure SQL Data Warehouse 
+			- Azure Data Lake Analytics 
+			- Azure Analysis Services 
+			- Azure HDInsight
+	- Design for NOSQL Storage
+		- Determine when to use 
+			- Azure Data Lake (TODO)
+			- Time Series Insights (TODO)
+		- design pipelines for managing recurring jobs (TODO)
+
+Design Networking Implementation (15-20%)
+	- Design Azure virtual networks
+		- Design solutions that use Azure networking services: 
+			- define DNS, DHCP, and IP strategies (TODO)
+			- determine when to use virtual network (VNet) service endpoints (TODO)
+			- determine when to use 
+				- Multi-node application gateways (TODO)
+	- Design external connectivity for Azure Virtual Networks (TODO)
+		- determine when to use the Container Networking Interface (CNI) plugin 
+		- design solutions that use Global VNet Peering
+	- Design security strategies (TODO)
+		- Determine when to use network virtual appliances
+		- design a perimeter network (DMZ)
+		- determine when to use a Web Application Firewall (WAF), Network Security Group (NSG), and virtual network service tunneling
+		- organize resources by designing solutions that use service tags
+
+Design Security and Identity Solutions (20-25%)
+	- Design an identity solution
+		- determine when to use Azure AD Domain Services (TODO)
+		- design security for Mobile Apps using AAD (TODO)
+	- Secure resources by using identity providers
+		- design mobile apps using AAD B2C or AAD B2B (TODO)
+
+Design Solutions by using Platform Services (10-15%)
+	- Design for Artificial Intelligence Services (TODO)
+		- Determine when to use 
+			- the appropriate Cognitive Services, 
+			- Azure Bot Service
+			- Azure Machine Learning
+			- and other categories that fall under cognitive AI
+	- Design for IoT (TODO)
+		- Determine when to use 
+			- Azure Stream Analytics
+			- Azure IoT Hubs
+			- Azure Event Hubs
+			- real-time analytics
+			- Azure Time Series Insights
+			- Azure IoT Edge
+			- Azure Notification Hubs
+			- Event Grid
+			- and other services that fall under IoT
+	- Design messaging solution architectures (TODO)
+		- design a push notification strategy for Mobile Apps
+	- Design for media service solutions (TODO)
+		- Define solutions using Azure Media Services, video indexer, video API, computer vision API, preview, and other media related services
+		- design solutions that use file-based encoding or Azure Media Analytics
+
+Design for Operations (10-15%)
+	- Design an operations automation strategy
+		- Determine when to use 
+			- Chef (TODO)
+			- Puppet (TODO)
+

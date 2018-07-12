@@ -1509,3 +1509,34 @@ https://login.microsoftonline.com/te/az533abc.onmicrosoft.com/oauth2/authresp
 
 Wuxa1587
 
+Azure Migrate
+	- Functions 
+		- Helps with Discovering and Assessing VM and Database Workloads
+		- Assessment
+			- Azure Readiness: is VM suitable for running Azure?
+			- Right Sizing: what's the best VM size based on utilization history?
+			- Cost estimates: How much would be the reoccurring cost of running the VM in azure?
+	- Steps
+		- Create an Azure Migrate Project
+		- Create a collector appliance (for discovering information about your on-premise machines)
+			- Download a setup file in Open Virtualization (ova) format
+			- import it as a VM on your on-premise V-Center Server
+			- connect to the vm using console monitor and specify a new password for VM while connecting
+			- Run the collector application in VM to initiate discovery
+		- Collector collects VM Metadata using VMWare PowerCLI Cmdlets
+			- metadata(collects cores, memory, disks, disk sizes and network adaptors)
+			- performance data
+				(cpu and memory usage, disk iops, disk throughput (in MBps) , and network output (in MBps)
+		- Metadata is pushed to Azure Migrate Project
+		- Gather the discovered VMs into Groups 
+			- Group VMs in the 
+				- Azure Migrate Portal
+					or 
+				- use tagging in vcenter Server
+			- Dependency visualization to view dependencies of a specific machine or for all machines in a group
+		- Once the group is formed, create an assessment for the group
+		- After the assessment, you can view it in the portal or download it in excel 
+		- After you have assessed on-premises machines for migration, you can use
+			- Azure Site Recorvery to migrate VMs 
+			- Azure Database migration to migrate VM Databases
+				
